@@ -287,7 +287,8 @@
 .ip-title{color:var(--pay-title);font-size:17px;font-weight:700;margin-bottom:6px}
 .ip-text{margin:0;text-align:left;color:var(--pay-text);font-size:15px;line-height:1.45}
 .info-pay .notice-btn{margin-top:12px}
-.bal-value{background:var(--accent-cyan);border-radius:5px;padding:2px 10px;font-weight:700}
+.bal-value{background:var(--balance-bg);color:#0b0b0d;border-radius:5px;
+  padding:2px 12px;font-weight:700}
 .services{padding:12px 16px}
 .srv-head{
   display:flex;justify-content:space-between;font-size:18px;color:var(--text);

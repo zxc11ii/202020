@@ -16,11 +16,10 @@ function fillBalance(el, card) {
 }
 
 function fillServices(el, card) {
+  /* без подключённых проездных блок не показываем */
+  if (!card.services.length) { el.style.display = 'none'; el.innerHTML = ''; return; }
+  el.style.display = '';
   el.innerHTML = `<div class="srv-head"><span>Активные проездные</span><span>Остаток</span></div>`;
-  if (!card.services.length) {
-    el.appendChild(h('div', { class: 'srv-empty muted center' }, 'Проездные не подключены'));
-    return;
-  }
   card.services.forEach(s => {
     const row = h('div', { class: 'srv-row' });
     row.innerHTML = `<span class="srv-name"><b>${s.name}</b><em>${s.rest}</em></span>` +
