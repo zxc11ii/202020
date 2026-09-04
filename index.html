@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f5f5">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0b0d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Транспортная карта">
+<title>Пермский транспорт</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png?v=31">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon.png?v=31">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png?v=31">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="css/app.css?v=31">
+<link rel="stylesheet" href="css/screens.css?v=31">
+</head>
+<body>
+
+<div class="stage">
+  <div class="phone" id="phone">
+    <!-- Навигационная шапка -->
+    <header class="navbar" id="navbar">
+      <button class="nav-left" id="navLeft" aria-label="Меню"></button>
+      <div class="nav-titles">
+        <div class="nav-title" id="navTitle">Билеты</div>
+        <div class="nav-sub" id="navSub"></div>
+      </div>
+      <div class="nav-right" id="navRight"></div>
+    </header>
+
+    <!-- Экраны -->
+    <main class="viewport" id="viewport"></main>
+
+    <!-- Нижние вкладки -->
+    <nav class="tabbar" id="tabbar"></nav>
+
+    <div class="home-indicator"></div>
+
+    <!-- Боковое меню -->
+    <div class="drawer-scrim" id="drawerScrim"></div>
+    <aside class="drawer" id="drawer">
+      <button class="drawer-close" id="drawerClose" aria-label="Закрыть"></button>
+      <ul class="drawer-list" id="drawerList"></ul>
+    </aside>
+
+    <!-- Нижняя шторка -->
+    <div class="sheet-scrim" id="sheetScrim"></div>
+    <div class="sheet" id="sheet"></div>
+
+    <!-- Тост -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Полноэкранный лоадер -->
+    <div class="loader" id="loader"><div class="spinner"></div><div class="loader-text" id="loaderText"></div></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/icons.js?v=31"></script>
+<script src="js/data.js?v=31"></script>
+<script src="js/ui.js?v=31"></script>
+<script src="js/screens/tickets.js?v=31"></script>
+<script src="js/screens/pass.js?v=31"></script>
+<script src="js/screens/schedule.js?v=31"></script>
+<script src="js/screens/account.js?v=31"></script>
+<script src="js/screens/payment.js?v=31"></script>
+<script src="js/app.js?v=31"></script>
+</body>
+</html>
