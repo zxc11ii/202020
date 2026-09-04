@@ -484,7 +484,7 @@ const CARD_KINDS = {
 
 const DEFAULT_CARDS = [
   { id: 'c1', kind: 'common',  number: '9643105903312', label: 'Основная',     balance: null,
-    services: [{ name: 'Безлимитный проездной', rest: 'до 02.09.2027', restValue: '∞' }] },
+    services: [{ name: 'Безлимитный проездной', rest: 'до 05.09.2027', restValue: '∞' }] },
   { id: 'c2', kind: 'digital', number: '9643105904418', label: 'Цифровая',     balance: 96,
     services: [] }
 ];
@@ -846,7 +846,7 @@ const LPD_RULES = [
    Хранилище состояния
    ============================================================ */
 const Store = {
-  key: 'permtransport.state.v7',
+  key: 'permtransport.state.v8',
   state: null,
 
   load() {

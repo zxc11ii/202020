@@ -265,9 +265,13 @@
 
 .pass-wrap .card{margin-left:14px;margin-right:14px}
 .balance-row{
-  display:flex;align-items:center;justify-content:flex-end;gap:12px;font-size:22px;
+  position:relative;display:flex;align-items:center;justify-content:center;
+  gap:12px;font-size:22px;padding-right:44px;padding-left:44px;
 }
-.bal-refresh{display:flex;align-items:center;color:var(--gray);margin-left:2px}
+.bal-refresh{
+  position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  display:flex;align-items:center;color:var(--gray);
+}
 .bal-refresh svg{width:22px;height:22px}
 
 /* плашка срока действия / подтверждения льготы */
