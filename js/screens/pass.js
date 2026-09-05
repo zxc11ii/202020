@@ -39,7 +39,10 @@ function cardActionsEl(getCard) {
     if (!canTopUp(c)) return toast('Пополнение баланса недоступно\nдля льготной карты');
     App.go(Screens.topUp(c));
   });
-  bBuy.addEventListener('click', () => App.go(Screens.buyService(getCard())));
+  bBuy.addEventListener('click', () => {
+    const c = getCard();
+    App.go(c.kind === 'digital' ? Screens.buyPass(c) : Screens.buyService(c));
+  });
   bHist.addEventListener('click', () => App.go(Screens.cardOps(getCard())));
   stack.append(bTop, bBuy, bHist);
   stack.sync = () => { bTop.className = 'btn ' + (canTopUp(getCard()) ? 'green' : 'gray'); };
@@ -305,6 +308,57 @@ Screens.topUp = (card) => ({
       }));
     });
     w.appendChild(go);
+    return w;
+  }
+});
+
+/* ---------- Покупка проездного на цифровую карту ---------- */
+Screens.buyPass = (card) => ({
+  title: 'Цифровая карта',
+  sub: 'Оплата',
+  bodyClass: 'pattern',
+  build() {
+    const w = h('div', { class: 'screen-inner' });
+
+    PASS_TARIFFS.forEach(t => {
+      const { from, to } = passPeriod(t);
+      const c = h('div', { class: 'card pass-tariff' });
+      c.innerHTML = `
+        <div class="pt-title">${t.name}</div>
+        <div class="pt-sep"></div>
+        <div class="pt-label">Период действия</div>
+        <div class="pt-value">с ${fmtDayTime(from)}</div>
+        <div class="pt-value">до ${fmtDayTime(to)}</div>
+        <div class="pt-label">Стоимость</div>
+        <div class="pt-value">${t.price} \u20bd</div>`;
+
+      const buy = h('button', { class: 'pt-buy' }, ICONS.creditCard + '<span>Купить</span>');
+      buy.addEventListener('click', () => App.go(Screens.payment({
+        title: 'Цифровая карта',
+        header: ['Проездной документ МКУ Гортранс', t.name],
+        lines: [
+          { label: 'Номер карты', value: card.number, blur: true },
+          { label: 'Период действия', value: fmtDayTime(from) + ' — ' + fmtDayTime(to) },
+          { label: 'Сумма', value: t.price + ' руб' }
+        ],
+        total: t.price,
+        totalUnit: 'руб',
+        onSuccess: () => {
+          card.services.push({
+            name: t.name,
+            rest: 'до ' + pad2(to.getDate()) + '.' + pad2(to.getMonth() + 1) + '.' + to.getFullYear(),
+            restValue: t.rides ? String(t.rides) : '\u221e'
+          });
+          Store.save();
+          App.openTab('pass');
+          App.setRoot(Screens.passHome());
+          toast('Проездной подключён');
+        }
+      })));
+      c.appendChild(buy);
+      w.appendChild(c);
+    });
+
     return w;
   }
 });

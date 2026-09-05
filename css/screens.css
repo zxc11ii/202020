@@ -567,3 +567,17 @@
 .pick-row.on{background:var(--avatar-bg)}
 .pick-empty{padding:24px 12px;font-size:16px}
 .pick-go{margin-top:14px;min-height:56px;font-size:19px}
+
+/* ---------- Покупка проездного (цифровая карта) ---------- */
+.pass-tariff{text-align:center;padding:14px 16px 18px}
+.pt-title{font-size:22px;font-weight:700;line-height:1.25;padding-bottom:10px}
+.pt-sep{height:1px;background:var(--text);opacity:.35;margin-bottom:12px}
+.pt-label{font-size:19px;line-height:1.5}
+.pt-value{font-size:21px;font-weight:700;line-height:1.45}
+.pt-buy{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  margin-top:14px;padding:12px 26px;border-radius:8px;
+  background:#0b57c4;color:#fff;font-size:22px;
+}
+.pt-buy:active{filter:brightness(.9)}
+.pt-buy svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.8}

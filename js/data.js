@@ -498,6 +498,29 @@ const DEFAULT_DIGITAL_CARDS = [
     balance: 24, issued: '2026-09-02', services: [] }
 ];
 
+/* --- Проездные цифровой транспортной карты --- */
+const PASS_TARIFFS = [
+  { id: 'p3m', name: 'Проездной на 3 месяца', days: 90,  price: 6192 },
+  { id: 'p1y', name: 'Проездной на 1 год',    years: 1,  price: 16770 },
+  { id: 'p1m', name: 'Проездной на 1 месяц',  days: 31,  price: 2193 },
+  { id: 'r40', name: '40 поездок',            days: 31,  price: 1548, rides: 40 },
+  { id: 'u15', name: 'Безлимит на 15 дней',   days: 30,  price: 1161 },
+  { id: 'p1d', name: 'Проездной на 1 сутки',  days: 1,   price: 162 }
+];
+
+/* Период действия проездного: с сегодняшней полуночи на срок тарифа */
+function passPeriod(t) {
+  const from = new Date();
+  from.setHours(0, 0, 0, 0);
+  const to = new Date(from);
+  if (t.years) to.setFullYear(to.getFullYear() + t.years);
+  else to.setDate(to.getDate() + t.days);
+  return { from, to };
+}
+function fmtDayTime(d) {
+  return pad2(d.getDate()) + '.' + pad2(d.getMonth() + 1) + '.' + d.getFullYear() + ' 00:00';
+}
+
 /* --- Услуги для покупки --- */
 const TARIFFS = [
   { id: 't1', name: 'Безлимитный проездной, 15 дней', price: 1200, note: 'Все виды муниципального транспорта' },
@@ -846,7 +869,7 @@ const LPD_RULES = [
    Хранилище состояния
    ============================================================ */
 const Store = {
-  key: 'permtransport.state.v8',
+  key: 'permtransport.state.v9',
   state: null,
 
   load() {
