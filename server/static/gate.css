@@ -1,0 +1,31 @@
+:root{--bg:#f2f2f7;--card:#fff;--text:#111;--text-2:#6b6b70;--blue:#0a84ff;--red:#d93025;--sep:#e3e3e8}
+@media (prefers-color-scheme:dark){:root{--bg:#0b0b0d;--card:#1c1c1e;--text:#f2f2f2;--text-2:#9a9aa0;--sep:#2c2c2e}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+.wrap{width:100%;max-width:380px;text-align:center}
+.wrap.wide{max-width:960px;text-align:left}
+.logo{width:88px;height:88px;border-radius:20px;margin-bottom:12px}
+h1{font-size:22px;margin:0 0 6px}
+.sub{color:var(--text-2);margin:0 0 20px;font-size:15px}
+form{display:flex;flex-direction:column;gap:10px}
+input{width:100%;padding:13px 14px;border:1px solid var(--sep);border-radius:12px;background:var(--card);color:var(--text);font-size:17px;outline:none}
+input:focus{border-color:var(--blue)}
+input.code{text-align:center;font-size:24px;letter-spacing:3px;font-variant-numeric:tabular-nums;text-transform:uppercase}
+button{padding:13px;border:0;border-radius:12px;background:var(--blue);color:#fff;font-size:17px;font-weight:600;cursor:pointer}
+.err{color:var(--red);font-size:14px}
+.hint{color:var(--text-2);font-size:13px;margin-top:22px}
+/* админка */
+.admin .row{flex-direction:row;margin-bottom:18px}
+.admin .row input[type=number]{width:80px}
+.admin .row button{white-space:nowrap}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:14px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--sep);text-align:left;vertical-align:middle}
+th{color:var(--text-2);font-weight:600}
+code{font-size:15px;font-weight:700;letter-spacing:1px}
+tr.revoked code{text-decoration:line-through;color:var(--text-2)}
+.acts{white-space:nowrap}
+.acts form{display:inline}
+.acts button,.lnk{padding:5px 9px;font-size:12px;font-weight:500;border-radius:8px;background:transparent;color:var(--blue);border:1px solid var(--sep);margin-left:4px}
+.acts .danger{color:var(--red)}
+.muted{color:var(--text-2);text-align:center}

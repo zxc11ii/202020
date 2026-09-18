@@ -19,3 +19,8 @@ Desktop.ini
 *~
 __pycache__/
 *.py[cod]
+
+# Шлюз доступа: база, окружение, секреты
+server/data/
+server/venv/
+.env

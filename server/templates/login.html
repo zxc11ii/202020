@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5f5f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0d" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Транспортная карта">
+<title>Вход · Пермский транспорт</title>
+<link rel="icon" href="/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/gate-static/gate.css">
+</head>
+<body>
+<main class="wrap">
+  <img class="logo" src="/assets/icons/icon-192.png" alt="">
+  <h1>Пермский транспорт</h1>
+  <p class="sub">Демо-приложение. Введите код доступа, который вам выдали.</p>
+
+  <form method="post" autocomplete="off">
+    <input name="code" class="code" inputmode="text" autocapitalize="characters"
+           spellcheck="false" placeholder="XXX-XXX-XXX" maxlength="11"
+           value="{{ prefill }}" required autofocus>
+    {% if error %}<div class="err">{{ error }}</div>{% endif %}
+    <button type="submit">Войти</button>
+  </form>
+
+  <p class="hint">Код привязывается к вашему устройству. Вход сохраняется на {{ days }} дней,
+  потом достаточно ввести тот же код ещё раз.</p>
+</main>
+<script>
+  const i = document.querySelector('.code');
+  i.addEventListener('input', () => {
+    const s = i.value.replace(/[^A-Za-z0-9]/g, '').toUpperCase().slice(0, 9);
+    i.value = s.replace(/(.{3})(?=.)/g, '$1-');
+  });
+</script>
+</body>
+</html>

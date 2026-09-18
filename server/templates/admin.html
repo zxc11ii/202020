@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Коды доступа</title>
+<link rel="stylesheet" href="/gate-static/gate.css">
+</head>
+<body class="admin">
+<main class="wrap wide">
+  <h1>Коды доступа</h1>
+  <p class="sub">Один код — одно устройство (до {{ max_devices }} браузеров: Safari и иконка на экране Домой).</p>
+
+  <form method="post" action="/admin/new" class="row">
+    <input name="note" placeholder="Заметка (кому выдан)" maxlength="100">
+    <input name="count" type="number" min="1" max="50" value="1" title="Сколько кодов создать">
+    <button type="submit">Создать</button>
+  </form>
+
+  <table>
+    <thead><tr><th>Код</th><th>Заметка</th><th>Устройств</th><th>Первый вход</th><th>Последний</th><th></th></tr></thead>
+    <tbody>
+    {% for r in rows %}
+      <tr class="{{ 'revoked' if r.revoked }}">
+        <td>
+          <code>{{ r.code }}</code>
+          <button class="lnk" type="button" onclick="copy('{{ base }}/login?code={{ r.code }}')">ссылка</button>
+        </td>
+        <td>{{ r.note }}</td>
+        <td title="{{ (r.agents or '').replace('||', '\n') }}">{{ r.devices }} / {{ max_devices }}</td>
+        <td>{{ r.first_used_at or '—' }}</td>
+        <td>{{ r.last_used_at or '—' }}</td>
+        <td class="acts">
+          <form method="post" action="/admin/{{ r.id }}/unbind"><button title="Отвязать устройства — код можно ввести на новом телефоне">отвязать</button></form>
+          <form method="post" action="/admin/{{ r.id }}/revoke"><button>{{ 'вернуть' if r.revoked else 'отозвать' }}</button></form>
+          <form method="post" action="/admin/{{ r.id }}/delete" onsubmit="return confirm('Удалить код {{ r.code }}?')"><button class="danger">удалить</button></form>
+        </td>
+      </tr>
+    {% else %}
+      <tr><td colspan="6" class="muted">Кодов пока нет</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</main>
+<script>
+  function copy(t) { navigator.clipboard.writeText(t).then(() => alert('Скопировано:\n' + t)); }
+</script>
+</body>
+</html>
