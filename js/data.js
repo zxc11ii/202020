@@ -26,6 +26,11 @@ const ROUTES = [
     "title": "Ст. Пермь-2 - ст. Бахаревка"
   },
   {
+    "num": "6",
+    "type": "tram",
+    "title": "Ст. Пермь-2 - станция Осенцы"
+  },
+  {
     "num": "7",
     "type": "tram",
     "title": "Ст. Пермь-2 - ОАО «Вагоноремонтный завод»"
@@ -449,6 +454,7 @@ const VEHICLES = [
   { plate: '13-208',    route: '4',  type: 'tram', carrier: 1, lat: 58.0116, lng: 56.2334 },
   { plate: '13-361',    route: '5',  type: 'tram', carrier: 1, lat: 58.0149, lng: 56.2447 },
   { plate: '13-475',    route: '8',  type: 'tram', carrier: 1, lat: 58.0163, lng: 56.2521 },
+  { plate: '13-292',    route: '6',  type: 'tram', carrier: 1, lat: 58.0082, lng: 56.2412 },
   { plate: '13-120',    route: '7',  type: 'tram', carrier: 1, lat: 58.0055, lng: 56.2564 },
   { plate: 'М448ХА159', route: '14', type: 'bus',  carrier: 0, lat: 58.0074, lng: 56.2211 },
   { plate: 'С804ЕМ159', route: '45', type: 'bus',  carrier: 4, lat: 58.0099, lng: 56.2477 }

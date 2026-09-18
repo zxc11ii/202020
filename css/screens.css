@@ -184,14 +184,14 @@
 
 /* ---------- Чек / детали заказа ---------- */
 .receipt-main{text-align:center;padding:18px 14px 16px}
-.rm-line{font-size:26px;line-height:1.34;letter-spacing:-.4px;color:var(--text)}
-.rm-line b{font-weight:700}
-.rm-dev{font-size:20px;margin-top:8px;color:var(--text)}
-.rm-dev-name{font-size:20px;font-weight:700;color:var(--text)}
+.rm-line{font-size:21px;line-height:1.38;letter-spacing:-.2px;color:var(--text)}
+.rm-line b{font-weight:600}
+.rm-dev{font-size:17px;margin-top:8px;color:var(--text)}
+.rm-dev-name{font-size:17px;font-weight:600;color:var(--text)}
 .receipt-time{text-align:center;padding:14px}
-.rt-label{font-size:20px;font-weight:700}
-.rt-time{font-size:40px;font-weight:700;letter-spacing:-1px;line-height:1.2}
-.rt-date{font-size:21px}
+.rt-label{font-size:17px;font-weight:600}
+.rt-time{font-size:34px;font-weight:600;letter-spacing:-.6px;line-height:1.2}
+.rt-date{font-size:18px}
 .ticket{
   margin-top:12px;background:transparent;border:1.5px dashed var(--dashed);border-radius:8px;
   padding:14px 16px;text-align:center;font-size:17px;line-height:1.5;color:var(--text);
@@ -221,6 +221,13 @@
 
 /* ---------- Правила / уведомления ---------- */
 .rule-text{margin:0;font-size:15px;line-height:1.5;color:var(--text-2)}
+/* предупреждение «демо» */
+.demo-note{margin-bottom:12px;border:1.5px solid #e0a300;background:rgba(224,163,0,.10)}
+.demo-note-title{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:700;margin-bottom:6px;color:#c98f00}
+.demo-note-title svg{width:22px;height:22px;flex:none}
+.demo-note .rule-text{color:var(--text)}
+.demo-note .rule-text + .rule-text{margin-top:8px}
+.demo-hint{margin-top:10px;text-align:center;font-size:13px;line-height:1.4;color:var(--text-2)}
 .doc{padding:16px 16px 28px}
 .doc-p{margin:0 0 12px;font-size:15px;line-height:1.5;color:var(--text)}
 .doc-p:last-child{margin-bottom:0}
@@ -515,7 +522,7 @@
 .order-pay{margin-top:16px;min-height:58px;font-size:20px}
 
 /* ---------- Оплаченный билет ---------- */
-.trip-time .rt-time{font-size:38px}
+.trip-time .rt-time{font-size:32px}
 .qr-img{width:170px;height:170px;display:block;border-radius:2px}
 
 /* ---------- Нижняя плашка ---------- */
