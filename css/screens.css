@@ -227,7 +227,6 @@
 .demo-note-title svg{width:22px;height:22px;flex:none}
 .demo-note .rule-text{color:var(--text)}
 .demo-note .rule-text + .rule-text{margin-top:8px}
-.demo-hint{margin-top:10px;text-align:center;font-size:13px;line-height:1.4;color:var(--text-2)}
 .doc{padding:16px 16px 28px}
 .doc-p{margin:0 0 12px;font-size:15px;line-height:1.5;color:var(--text)}
 .doc-p:last-child{margin-bottom:0}

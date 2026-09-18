@@ -602,8 +602,6 @@ function receiptBottom(o) {
     <div class="tk-sep"></div>
     <div class="tk-total">Стоимость: ${o.paid} \u20bd</div>`;
   wrap.appendChild(t);
-  wrap.appendChild(h('div', { class: 'demo-hint' },
-    'Демо-билет: не является платёжным документом и не даёт права проезда'));
   return wrap;
 }
 
