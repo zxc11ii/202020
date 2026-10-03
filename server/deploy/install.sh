@@ -10,6 +10,8 @@ DEST=/var/www/permtransport
 apt-get update
 apt-get install -y nginx python3-venv git certbot python3-certbot-nginx
 
+git config --global --add safe.directory "$DEST" 2>/dev/null || true
+
 if [ -d "$DEST/.git" ]; then git -C "$DEST" pull; else git clone "$REPO" "$DEST"; fi
 
 python3 -m venv "$DEST/server/venv"
