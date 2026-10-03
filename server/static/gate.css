@@ -17,7 +17,8 @@ button{padding:13px;border:0;border-radius:12px;background:var(--blue);color:#ff
 .hint{color:var(--text-2);font-size:13px;margin-top:22px}
 /* админка */
 .admin .row{flex-direction:row;margin-bottom:18px}
-.admin .row input[type=number]{width:80px}
+.admin .row input[type=number]{width:70px}
+.admin .cnt{display:flex;align-items:center;gap:8px;color:var(--text-2);font-size:14px;white-space:nowrap}
 .admin .row button{white-space:nowrap}
 table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:14px}
 th,td{padding:10px 12px;border-bottom:1px solid var(--sep);text-align:left;vertical-align:middle}

@@ -9,16 +9,18 @@
 <body class="admin">
 <main class="wrap wide">
   <h1>Коды доступа</h1>
-  <p class="sub">Один код — одно устройство (до {{ max_devices }} браузеров: Safari и иконка на экране Домой).</p>
+  <p class="sub">Один код — одно устройство. У телефона два слота: обычный браузер и
+  иконка на экране «Домой» (в iOS это разные хранилища входа), поэтому в колонке
+  «Слоты» максимум {{ max_devices }}. Второму человеку код уже не подойдёт.</p>
 
   <form method="post" action="/admin/new" class="row">
     <input name="note" placeholder="Заметка (кому выдан)" maxlength="100">
-    <input name="count" type="number" min="1" max="50" value="1" title="Сколько кодов создать">
+    <label class="cnt">Кодов <input name="count" type="number" min="1" max="50" value="1"></label>
     <button type="submit">Создать</button>
   </form>
 
   <table>
-    <thead><tr><th>Код</th><th>Заметка</th><th>Устройств</th><th>Первый вход</th><th>Последний</th><th></th></tr></thead>
+    <thead><tr><th>Код</th><th>Заметка</th><th>Слоты</th><th>Первый вход</th><th>Последний</th><th></th></tr></thead>
     <tbody>
     {% for r in rows %}
       <tr class="{{ 'revoked' if r.revoked }}">
